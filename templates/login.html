@@ -1,0 +1,95 @@
+{%if message %}
+<script>
+    alert('{{message}}');
+</script>
+
+{%endif%}
+
+<!DOCTYPE html>
+
+<head>
+    <title>login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: rgb(220, 231, 231);
+        }
+        
+        .row {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 12px 12px 12px gray;
+        }
+        
+        img {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+        
+        .btn1 {
+            border: none;
+            outline: none;
+            height: none;
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 5px;
+        }
+        
+        .btn1:hover {
+            background: white;
+            border: 1px;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="from my-4 mx-5 mt-lg-5">
+        <div class="container">
+            <div class="row no-gutters ">
+                <div class="col-lg-6">
+                    <img src="https://5.imimg.com/data5/LM/PX/MY-18485330/virtual-classroom-service-500x500.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 px-5 pt-5">
+                    <h1 class="font-weight-bold py-3">LogIn</h1>
+                    <h4 class="font-weight-bold">Virtual Classroom</h4>
+                    <form action="/login/" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <label class="font-weight-bold" for="name">Username:</label> <br> {{form.username}}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <label class="font-weight-bold" for="pwd">Password:</label><br> {{form.password}}
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-lg-7">
+                                <button type="submit" value="signin" class="btn1 mt-3 mb-5">Signin</button>
+                            </div>
+                        </div>
+                        <p><a href=""> Forgot password?</a></p>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

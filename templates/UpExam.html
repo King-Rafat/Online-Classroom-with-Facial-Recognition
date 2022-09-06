@@ -1,0 +1,58 @@
+</html>
+
+{%if message %}
+
+<script>
+    alert('{{message}}');
+</script>
+
+
+
+{%endif%}
+<!DOCTYPE html>
+
+<head>
+    <title>upload exam</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<style>
+    body {
+        background: #F8F8FF;
+    }
+    
+    #ui {
+        background-color: #a1f1cc;
+        padding: 5px;
+        margin-top: 50px;
+        border-radius: 5px;
+        box-shadow: 12px 12px 12px gray;
+    }
+    
+</style>
+
+
+<body>
+       <div class="container">
+        <div id="ui">
+            <h1 class="text-center text-black">UPLOAD QUESTION</h1><br>
+            <form action="/Exam/" method="post" enctype="multipart/form-data" class="form-group">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-6 col-md-6">
+                         {{form.as_p}}
+                        <label>Submission Date: </label>
+                        <input type="date" id="sub_date" name="sub_date"> <br><br>
+                        <input type="submit" class="btn btn-primary btn-block btn-lg" style="box-shadow: 5px 5px 5px gray;" value="Upload">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+

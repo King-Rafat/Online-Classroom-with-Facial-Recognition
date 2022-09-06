@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Public Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+    .tab {
+        background-color: #4c9b9e;
+    }
+    
+    .bc {
+        text-align: right;
+        margin-right: 10px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <div class="bc">
+        <a href="{%url 'dashboard' %}"><button class="btn btn-primary btn-sm">Back</button> </a>
+    </div>
+    <div class="container">
+        <h1 class="text-center">Public Document</h1>
+        <form action="/search/" method="post" enctype="multipart/form-data" class="ml-2">
+            {% csrf_token %} Search Keys:
+            <input type="Text" name="Index" placeholder="search..">
+            <button type="submit" class="btn btn-primary btn-sm">Search</button>
+        </form>
+        <br>
+
+        <table class="table table-striped table-bordered">
+            <thead class="tab text-white">
+                <tr>
+                    <td>Index</td>
+                    <td>Username</td>
+                    <td>Upload Date</td>
+                    <td>Expiry Date</td>
+                    <td>File</td>
+                </tr>
+
+            </thead>
+            <tbody>
+                {% for i in doc%}
+                <tr>
+
+                    <td>{{i.Index}}</td>
+                    <td>{{i.User_name}}</td>
+                    <td>{{i.Upload_date}}</td>
+                    <td>{{i.Expiry_date}}</td>
+                    <td>
+                        <a href="{{ i.File.url }}" class="btn btn-primary btn-sm" target="_blank">View</a>
+                    </td>
+
+
+
+
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

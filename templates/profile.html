@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<head>
+    <title> view information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    .bc {
+        text-align: right;
+        margin-right: 10px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <div class="bc">
+        <a href="{%url 'dashboard' %}"><button class="btn btn-primary btn-sm">Back</button> </a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>Username</td>
+                <td>Email</td>
+                <td>Password</td>
+                <td>Role</td>
+                <td>Avatar</td>
+
+            </tr>
+
+        </thead>
+        <tbody>
+            {% for i in informations %}
+            <tr>
+                <td>{{ i.Username }}</td>
+                <td>{{ i.Email }}</td>
+                <td>{{i.password}}</td>
+                <td>{{ i.Role_id }}</td>
+                {% if i.Avatar %}
+                <div class="">
+                    <td>
+                        <img src="{{i.Avatar.url}}" class="img-fluid img-thumbnail" alt="Responsive image">
+                    </td>
+                </div>
+
+                {% else %}
+                <td>
+                    <img src="" alt="" class="prod-size">
+                </td>
+
+                {% endif %}
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

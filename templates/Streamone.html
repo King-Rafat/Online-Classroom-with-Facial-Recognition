@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>stream</title>
+</head>
+<style type="text/css">
+    .jumbotron {
+        font-size: 20px;
+        border-radius: 20px;
+        border: 1px solid;
+        font-family: 'Times New Roman', Times, serif;
+    } 
+    
+    .btn {
+        font-size: 20px;
+        border-radius: 20px;
+        padding-top: 15px;
+    }
+    
+    h1 {
+        border-radius: 20px;
+    }
+    
+    input {
+        width: 92%;
+        padding: 10px 20px;
+        border: 1px solid;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 class="text-center bg-dark text-white p-4 mt-5 ">CLASS STREAM AND UPDATES</h1>
+        <form action="/streamview/" method="post" enctype="multipart/form-data" class="cont">
+            {% csrf_token %} {{form.Content}}
+            <button type="submit" value="signin" class="btn bg-secondary text-white font-weight-bold">POST</button>
+        </form>
+        {%for s in S%}
+        <div class="jumbotron mt-3">
+            Username: {{s.posted.Username}}
+            <br> ID: {{s.posted.Serial}}
+            <br> {{s.Content}}
+            <br>
+        </div>
+        {%endfor%}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{% for dest in dests%}
+{% endfor %}
+{%if dest.offer == True%}
+{%endif%}
+
+{%if message %}
+<script>
+    alert('{{message}}');
+</script>
+{%endif%}

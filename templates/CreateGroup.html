@@ -1,0 +1,73 @@
+{%if message %}
+
+<script>
+    alert('{{message}}');
+</script>
+{%endif%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>create group</title>
+</head>
+<style type="text/css">
+    body {
+        background: rgb(220, 231, 231);
+    }
+    
+    .content {
+        margin: 10%;
+        background-color: #fff;
+        box-shadow: 12px 12px 12px gray;
+    }
+    
+    h3 {
+        text-align: center;
+    }
+    
+    h4 {
+        text-align: center;
+    }
+    
+    .bc {
+        text-align: right;
+        margin-right: 10px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <div class="bc">
+        <a href="{%url 'dashboard' %}"><button class="btn btn-primary btn-sm">Back</button> </a>
+    </div>
+    <div class="container jumborton ">
+        <div class="row content">
+            <div class="col-md-6">
+                <img src="https://thumbs.dreamstime.com/b/online-electronic-documents-document-signature-computer-screen-online-electronic-documents-document-signature-138566968.jpg" class="img-fluid " alt="image">
+
+            </div>
+            <div class="col-md-6">
+                <h3 class="mt-5">Document Management System</h3><br>
+                <h4>Add Member</h4><br>
+                <form action="/Group/" method="post">
+                    {% csrf_token %}
+                    <div class="form group">
+                        {{form}}
+                    </div>
+                    <br><br>
+
+                    <input type="submit" value="Add" class="btn btn-primary btn-block btn-md" style="box-shadow: 2px 2px 2px gray;">
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+{%if message %}
+
+<script>
+    alert('{{message}}');
+</script>
+
+{%endif%}
+<!DOCTYPE html>
+
+<head>
+    <title> personal information</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style type="text/css">
+        .wrapper {
+            padding: 70px;
+            text-align: center;
+        }
+        
+        img {
+            border-radius: 50px;
+            width: 12%;
+            height: auto;
+        }
+        
+        .tab {
+            background-color: #66c6f7;
+        }
+        
+        .hd {
+            background-color: #e0e0eb;
+            margin-top: 10px;
+            padding: 5px;
+        }
+        
+        .bc {
+            text-align: right;
+            margin-right: 10px;
+            margin-top: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hd">
+        <h2 class="text-center">Attendance Information</h2>
+    </div>
+    <div class="wrapper">
+        <table class="table table-striped table-bordered">
+            <thead class="text-center font-weight-bolder tab">
+        
+                <tr>
+                    <td>Grade</td>
+                    <td>Student</td>
+                    <td>Exam No.</td>
+
+
+                </tr>
+
+            </thead>
+            <tbody>
+            {% for g in G%}
+                <tr> 
+                    <td>{{g.Grade_c}}</td>
+                    <td>{{g.workerd}}</td>
+
+                    <td>{{g.ownerd}}</td>
+                    {% for a in w%}
+                    {%if a.Serialw == g.ownerd%}
+                     <td>{{a.Doc_name_w}}</td>
+                   
+{%endif%}                    
+{% endfor %}
+                </tr>
+{% endfor %}
+            
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+    </div>
+</body>
+
+</html>

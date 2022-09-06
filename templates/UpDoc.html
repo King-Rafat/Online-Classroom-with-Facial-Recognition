@@ -1,0 +1,92 @@
+
+{%if message %}
+<script>
+    alert('{{message}}');
+</script>
+{%endif%}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>class work</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background-color: #c2c5c9;
+        }
+        
+        #ui {
+            background-color: #98ec7f;
+            padding: 10px;
+            padding-left: 5px;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 12px 12px 12px gray;
+        }
+        
+        .btn1 {
+            border: none;
+            outline: none;
+            height: none;
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+        }
+        
+        #ui label {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-7">
+
+                <div id="ui">
+                    <h1 class="text-center text-black">Upload Classwork</h1><br>
+                    <form class="form-group" action="/uploadqc/" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-8 col-md-6">
+                                <label class="font-weight-bold">Document Name: </label> {{form.Doc_name}}
+                            </div>
+                            <br>
+                            <div class="col-lg-6 col-md-6">
+                                <label class="font-weight-bold">Comment: </label> {{form.Cmnt}}
+                            </div>
+                          <br><br>
+                           <div class="col-lg-8 col-md-6">
+                                <label class="font-weight-bold">Choice File: </label> {{form.File}}
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-row">
+                            <div class="col-lg-12">
+                                <button type="submit" value="signin" class="btn1 mt-3 mb-5">Upload</button>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

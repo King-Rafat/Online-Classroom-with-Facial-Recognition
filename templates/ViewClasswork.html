@@ -1,0 +1,56 @@
+{%if message %}
+<script>
+    alert('{{message}}');
+</script>
+{%endif%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>view classwork</title>
+    <style type="text/css">
+        a {
+            display: block;
+            border-radius: 30px;
+            font-size: 30px;
+            background: linear-gradient(90deg, #6be4bc, #1e76a8);
+            text-align: center;
+            padding: 20px 30px;
+            position: relative;
+            color: rgb(26, 24, 24);
+            margin: 20px 2px;
+            border: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: Montserrat;
+        }
+        
+        a:nth-child(2) {
+            background: linear-gradient(90deg, #31c774, #224e2f);
+            color: rgb(245, 233, 233);
+            position: relative;
+        }
+        
+        .h1 {
+            font-family: Italic;
+        }
+        
+        #a1 {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title text-white font-weight-blod bg-dark mt-4 text-center p-3 h1">Classworks</h1>
+        {% for c in w%}
+        <a id="a1" href="{%url 'Cdet'  c.Serialo%}">{{c.Doc_name}}</a> {% endfor %}
+    </div>
+</body>
+
+</html>

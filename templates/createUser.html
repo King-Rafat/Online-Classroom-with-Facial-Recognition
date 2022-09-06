@@ -1,0 +1,111 @@
+{%if message %}
+<script>
+    alert('{{message}}');
+</script>
+{%endif%}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>create user</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background-color: #b0c4de;
+        }
+        
+        #ui {
+            background-color: white;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 10px;
+            box-shadow: 12px 12px 12px gray;
+        }
+        
+        .btn1 {
+            border: none;
+            outline: none;
+            height: none;
+            width: 100%;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+        }
+        
+        #ui label {
+            color: black;
+        }
+        
+        .bc {
+            text-align: right;
+            margin-right: 10px;
+            margin-top: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+
+                <div id="ui">
+                    <h2 class="text-center text-black">CREATE USER</h2><br>
+                    <form class="form-group" action="/Cuser/" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <label class="font-weight-bold">Username: </label> {{form.Username}}
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <label class="font-weight-bold">Password </label> {{form.password}}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <label class="font-weight-bold">Email: </label> {{form.Email}}
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <label class="font-weight-bold">Role: </label> <br> {{form.Role}}
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6">
+                                <label class="font-weight-bold">Profile: </label> {{form.Image}}
+                            </div>
+                        </div>
+
+
+                        <br><br>
+
+                        <div class="form-row">
+                            <div class="col-lg-12">
+                                <button type="submit" value="signin" class="btn1 mt-3 mb-5">CREATE</button>
+                            </div>
+                        </div>
+
+
+
+                    </form>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>

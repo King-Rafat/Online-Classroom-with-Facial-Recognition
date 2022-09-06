@@ -1,0 +1,79 @@
+{%if message %}
+<script>
+    alert('{{message}}');
+</script>
+{%endif%}
+<!DOCTYPE html>
+
+<head>
+    <title>Classwork</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+    .bc {
+        text-align: right;
+        margin-right: 10px;
+        margin-top: 5px;
+        padding: 5px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">People</h1>
+        
+
+        <table class="table table-striped table-bordered">
+            <thead class="bg-dark text-white ">
+                <h2>TEACHERS</h2>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for i in u%}
+                {%if i.Cowner.Role == r1%}
+                <tr>
+                    <td>{{i.Cowner.Username}}</td>
+                    <td>{{i.Cowner.Email}}</td>
+            
+                </tr>
+                 {%endif%}
+                {% endfor%}
+               
+            </tbody>
+
+        </table>
+        <br><br>
+                          <table class="table table-striped table-bordered">
+            <thead class="bg-info text-white ">
+                <h2>CLASSMATES</h2>
+                <tr>
+                    <td>Name</td>
+                    <td>Email</td>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in u%}
+ {%if i.Cowner.Role == r2%}
+
+                <tr>
+                    <td>{{i.Cowner.Username}}</td>
+                    <td>{{i.Cowner.Email}}</td>
+                
+                </tr>
+                {%endif%}
+                {% endfor%}
+                
+
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
+
+</html>

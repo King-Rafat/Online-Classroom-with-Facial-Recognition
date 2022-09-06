@@ -1,0 +1,75 @@
+{%if message %}
+<script>
+    alert('{{message}}');
+</script>
+{%endif%}
+<!DOCTYPE html>
+<head>
+    <title>Classwork</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style type="text/css">
+  .tab {
+    background-color:#70dfd0;
+   }
+</style>
+
+<body>
+    <div class="container">
+        <h2 class="text-center">Submitted Classwork</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="text-black tab ">
+            
+                <tr>
+                    <td>Document Name</td>
+                    <td>Date Submitted</td>
+                    <td>Student</td>
+                    <td>File</td>
+                    <td>Late</td>
+                    <td>Post Grade</td>
+                    <td>Grade</td>
+                </tr>
+
+            </thead>
+ 
+            <tbody>
+                {% for i in s%}
+                <tr>
+
+
+                    <td>{{i.Doc_name_w}}</td>
+                    <td>{{i.Sub_Date_w}}</td>
+                    <td>{{i.Owner_w}}</td>
+                    <td>
+                        <a href="{{i.Filew.url}}" class="btn btn-primary btn-sm" target="_blank">View</a>
+                    </td>
+                    
+                        {%if i.Late == True%}
+                        <td>
+                        
+                        Yes
+                        </td>
+                        {% else %}
+                        <td>No</td>
+                         {%endif%}
+                         <td>
+                         <form action="{% url 'Gsub' i.Serialw%}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %} {{form.as_p}}
+                            <button type="submit" value="signin" class="btn1 mt-3 mb-5">submit</button>
+                        </form>
+                        </td>
+                        {% for j in g%}
+                        {%if j.workerd == i.Owner_w%}
+
+                           <td>{{j.Grade_c}}  </td>
+{%endif%}                           
+                {% endfor%}
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
