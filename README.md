@@ -21,3 +21,12 @@
 #Real-Time Proctoring using Facial Recognition
 
 #Grading system for teachers
+
+#View grades
+
+#Make Class Comments
+
+#Submit paper
+
+ETC.
+
